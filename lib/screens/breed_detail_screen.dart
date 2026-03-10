@@ -28,17 +28,72 @@ class BreedDetailScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text('Origin: ${breed.origin}'),
                   const SizedBox(height: 8),
-                  Text('Intelligence: ${breed.intelligence}'),
+                  Text('Temperament: ${breed.temperament}'),
                   const SizedBox(height: 8),
-                  Text('Adaptability: ${breed.adaptability}'),
+                  Text('Weight: ${breed.weightMetric} kg'),
                   const SizedBox(height: 8),
                   Text('Life span: ${breed.lifeSpan} years'),
+                  const SizedBox(height: 16),
+                  const Text('Breed Characteristics'),
+                  const SizedBox(height: 12),
+                  ...breed.characteristics.map(
+                    (characteristic) => Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: _BreedCharacteristicRow(
+                        characteristic: characteristic,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _BreedCharacteristicRow extends StatelessWidget {
+  const _BreedCharacteristicRow({required this.characteristic});
+
+  final BreedCharacteristic characteristic;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(child: Text(characteristic.label)),
+        const SizedBox(width: 16),
+        _BreedCharacteristicScale(value: characteristic.value),
+      ],
+    );
+  }
+}
+
+class _BreedCharacteristicScale extends StatelessWidget {
+  const _BreedCharacteristicScale({required this.value});
+
+  final int value;
+
+  @override
+  Widget build(BuildContext context) {
+    final normalizedValue = value.clamp(0, 5);
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: List<Widget>.generate(5, (index) {
+        final isActive = index < normalizedValue;
+
+        return Padding(
+          padding: EdgeInsets.only(right: index == 4 ? 0 : 4),
+          child: Icon(
+            Icons.circle,
+            size: 14,
+            color: isActive ? Colors.green : Colors.grey.shade300,
+          ),
+        );
+      }),
     );
   }
 }
