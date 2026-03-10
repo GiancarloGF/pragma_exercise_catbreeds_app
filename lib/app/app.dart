@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/landing_screen.dart';
 import '../services/cat_api_service.dart';
+import '../theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key, CatApiService? apiService})
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Catbreeds App',
+      theme: buildAppTheme(),
       home: LandingScreen(apiService: _apiService ?? CatApiService()),
     );
   }

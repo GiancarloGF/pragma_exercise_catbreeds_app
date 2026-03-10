@@ -42,17 +42,20 @@ class CatBreed {
   final String? imageUrl;
 
   List<BreedCharacteristic> get characteristics => [
-    BreedCharacteristic(label: 'Adaptability', value: adaptability),
-    BreedCharacteristic(label: 'Affection Level', value: affectionLevel),
-    BreedCharacteristic(label: 'Child Friendly', value: childFriendly),
-    BreedCharacteristic(label: 'Dog Friendly', value: dogFriendly),
-    BreedCharacteristic(label: 'Energy Level', value: energyLevel),
-    BreedCharacteristic(label: 'Grooming', value: grooming),
-    BreedCharacteristic(label: 'Health Issues', value: healthIssues),
-    BreedCharacteristic(label: 'Intelligence', value: intelligence),
-    BreedCharacteristic(label: 'Shedding Level', value: sheddingLevel),
-    BreedCharacteristic(label: 'Social Needs', value: socialNeeds),
-    BreedCharacteristic(label: 'Stranger Friendly', value: strangerFriendly),
+    BreedCharacteristic(label: 'Adaptabilidad', value: adaptability),
+    BreedCharacteristic(label: 'Nivel de afecto', value: affectionLevel),
+    BreedCharacteristic(label: 'Amigable con niños', value: childFriendly),
+    BreedCharacteristic(label: 'Amigable con perros', value: dogFriendly),
+    BreedCharacteristic(label: 'Nivel de energía', value: energyLevel),
+    BreedCharacteristic(label: 'Aseo', value: grooming),
+    BreedCharacteristic(label: 'Problemas de salud', value: healthIssues),
+    BreedCharacteristic(label: 'Inteligencia', value: intelligence),
+    BreedCharacteristic(label: 'Nivel de muda', value: sheddingLevel),
+    BreedCharacteristic(label: 'Necesidades sociales', value: socialNeeds),
+    BreedCharacteristic(
+      label: 'Amigable con extraños',
+      value: strangerFriendly,
+    ),
   ];
 
   factory CatBreed.fromJson(Map<String, dynamic> json) {
