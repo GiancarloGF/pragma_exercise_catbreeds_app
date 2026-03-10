@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Catbreeds App',
+      title: 'Catbreeds',
       theme: buildAppTheme(),
       home: LandingScreen(apiService: _apiService ?? CatApiService()),
     );
